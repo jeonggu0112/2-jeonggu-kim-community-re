@@ -7,9 +7,9 @@ import HeaderPage from './HeaderPage.js';
 import CommentPage from './CommentPage';
 
 // NOTE : 제목 부분
-function BoardTitle({toggleDeletePopup, boardInfo }) {
+function BoardTitle({toggleDeletePopup, boardInfo}) {
     const handleBoardEditClick = (boardInfo) => {
-        window.location.href = `/boardEdit/${boardInfo.boardNo}`;
+        window.location.href = `/boardEdit?boardNo=${boardInfo.id}`;
     };
 
     return (
@@ -24,7 +24,7 @@ function BoardTitle({toggleDeletePopup, boardInfo }) {
                     <span className="board-date" id="span_board_dt">{boardInfo.date}</span>
                 </div>
                 <div className="board-actions" id="div_board_button" >
-                    <button className="board-button" id="btn_edit"onClick={handleBoardEditClick}>수정</button>
+                    <button className="board-button" id="btn_edit"onClick={() => handleBoardEditClick(boardInfo)}>수정</button>
                     <button className="board-button" id="btn_delete" onClick={toggleDeletePopup}>삭제</button>
                 </div>
             </div>
